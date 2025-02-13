@@ -12,7 +12,7 @@
 
 # 1 Introduction
 
-Text…
+okAY
 
 # 2 Detailed description of unit test strategy
 
