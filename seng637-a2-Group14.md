@@ -44,6 +44,15 @@ The table below outlines the test types and their applicability in our project. 
 |---------------------|-------------------------------------------------------------------|------------------------------------------------------|
 | **Unit Testing**     | Tested individual methods to verify they behaved as expected.     | `org.jfree.data.Range`, `org.jfree.data.DataUtilities` |  
 
+**2.3 Test Coverage**
+As required, we have created test cases for all 5 methods of DataUtilities class and chosen 5 out of 15 methods for the Range class.
+
+- Functional Variety – Chose methods that covered different types of operations (e.g., calculations, value checks, range manipulations).  
+- Edge Case Representation – Included methods where boundary value analysis could be applied.  
+- Expected Test Outcomes – Ensured a mix of methods that would both pass and fail, allowing us to evaluate different testing scenarios.  
+- Core vs. Less Critical Methods – Selected both commonly used and less frequently used methods to ensure balanced coverage.  
+
+By varying the selected methods, we ensured that our test suite demonstrated both successful and failed tests, providing a more comprehensive validation of the system's behavior.  
 # 3 Test cases developed
 
 
