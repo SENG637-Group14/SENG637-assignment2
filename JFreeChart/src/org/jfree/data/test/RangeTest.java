@@ -164,6 +164,7 @@ public class RangeTest {
         assertEquals(Double.MIN_VALUE, range.getLowerBound(), 0.0001);
     }
 
+
     /**
      * Test the lower bound for an extreme range (-Double.MAX_VALUE, Double.MAX_VALUE).
      * Expected output: -Double.MAX_VALUE
