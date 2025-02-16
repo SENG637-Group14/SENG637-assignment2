@@ -19,9 +19,33 @@ In the following sections, we document our testing strategy, the test cases we d
 
 # 2 Detailed description of unit test strategy
 
-// including the input partitions you have designed
+For our test strategy, we aimed for high coverage by testing both basic functionality and edge cases. To achieve this, we used equivalence partitioning and boundary value analysis to cover different input scenarios. All test cases were based on the API specifications in the Javadoc.
+
+**2.1 Core Testing Principles**
+
+Our approach was built around these key principles:
+
+- Requirement-Based Testing: Each test case was directly derived from the Javadoc specifications of the methods. We selected 5 methods from both classes and did an exhaustive test on those methods, to cover major scenarios.
+- Black-Box Techniques: We focused on testing inputs and expected outputs without looking at the internal code.
+- Early Defect Detection: JUnit and jMock were used to automate testing, helping us catch defects early.
+- Consistent Standards: We followed standard naming conventions and best practices when writing test methods.
+
+**2.2 Test Types**
+
+Our testing focused primarily on unit testing, ensuring each method worked as expected. To achieve this;  
+
+- We wrote test code using JUnit  
+- Used mock objects to handle dependencies  
+- Verified each unit against the given requirements
+
+The table below outlines the test types and their applicability in our project. By isolating individual units, we could systematically verify their behavior against the given requirements. 
+
+| **Test Type**       | **Description**                                                    | **Applicable To**                                    |
+|---------------------|-------------------------------------------------------------------|------------------------------------------------------|
+| **Unit Testing**     | Tested individual methods to verify they behaved as expected.     | `org.jfree.data.Range`, `org.jfree.data.DataUtilities` |  
 
 # 3 Test cases developed
+
 
 Text…
 
