@@ -52,7 +52,24 @@ As required, we have created test cases for all 5 methods of DataUtilities class
 - Expected Test Outcomes – Ensured a mix of methods that would both pass and fail, allowing us to evaluate different testing scenarios.  
 - Core vs. Less Critical Methods – Selected both commonly used and less frequently used methods to ensure balanced coverage.  
 
-By varying the selected methods, we ensured that our test suite demonstrated both successful and failed tests, providing a more comprehensive validation of the system's behavior.  
+By varying the selected methods, we ensured that our test suite demonstrated both successful and failed tests, providing a more comprehensive validation of the system's behavior.
+
+**2.4 Test Techniques**
+
+For test techniques, we considered the following;
+
+- Equivalence Partitioning (EP)
+The EP divides the input domain into classes where inputs within each class are expected to behave similarly. This reduces redundancy in testing.
+Application: For Range.contains(), we partitioned the input double value into three classes: "within the range," "below the range," and "above the range."
+
+- Boundary Value Analysis (BVA)
+BVA tests the boundaries of input domains to identify vulnerabilities at the extremes.
+Application: For Range.contains(), boundary values included the lower and upper bounds of the range, as well as values just above and below the bounds.
+
+- Mocking
+We used mocking to simulate real objects, allowing us to isolate the unit under test. We used jMock to mock dependencies on interfaces like Values2D and KeyedValues.
+Application: We used jMock to simulate the Values2D and KeyedValues interfaces in the DataUtilities class, allowing us to control the behavior and data returned by these dependencies, isolating the logic of the class.
+
 # 3 Test cases developed
 
 
