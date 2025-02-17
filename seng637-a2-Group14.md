@@ -79,6 +79,17 @@ The team began testing once the following conditions were met.
 - Software Under Test (SUT) was available for testing.
 - Test Specification were finalized created.
 - The test environment was properly set up.
+
+**2.4 Test Environment**
+
+JUnit Version: 4.11
+
+JMock Version: Compatible with JUnit 4.11
+
+IDE: Eclipse
+
+System Under Test: JFreeChart
+
 # 3 Test cases developed
 
 
