@@ -67,8 +67,10 @@ BVA tests the boundaries of input domains to identify vulnerabilities at the ext
 Application: For Range.contains(), boundary values included the lower and upper bounds of the range, as well as values just above and below the bounds.
 
 - Mocking
-We used Mocking to simulate real objects, allowing us to isolate the unit under test and test the logic within "value2D" and "KeyedValues" objects. We used jMock to mock dependencies on these interfaces.
-Application: We used jMock to simulate the Values2D and KeyedValues interfaces in the DataUtilities class, allowing us to control the behavior and data returned by these dependencies, isolating the logic of the class.
+We used Mocking to simulate real objects, allowing us to isolate the unit under test and test the logic within "value2D" and "KeyedValues" objects. We used jMock to mock dependencies on these interfaces, since these interfaces do not have concrete implementations in our test environment.
+
+This allowed us to simulate method calls, control return values, and isolate the behavior of DataUtilities methods without needing actual implementations. For example, when testing calculateColumnTotal(), we mocked a Values2D object to return predefined row counts and values, ensuring controlled and repeatable test scenarios.
+
 
 ###Table here - TBC
 
