@@ -35,7 +35,7 @@ Our approach was built around these key principles:
 Our testing focused primarily on unit testing, ensuring each method worked as expected. To achieve this;  
 
 - We wrote test code using JUnit  
-- Used mock objects to handle dependencies  
+- We used mock objects to handle dependencies  
 - Verified each unit against the given requirements
 
 The table below outlines the test types and their applicability in our project. By isolating individual units, we could systematically verify their behavior against the given requirements. 
