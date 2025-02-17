@@ -67,8 +67,9 @@ BVA tests the boundaries of input domains to identify vulnerabilities at the ext
 Application: For Range.contains(), boundary values included the lower and upper bounds of the range, as well as values just above and below the bounds.
 
 - Mocking
-We used mocking to simulate real objects, allowing us to isolate the unit under test. We used jMock to mock dependencies on interfaces like Values2D and KeyedValues.
+We used Mocking to simulate real objects, allowing us to isolate the unit under test and test the logic within "value2D" and "KeyedValues" objects. We used jMock to mock dependencies on these interfaces.
 Application: We used jMock to simulate the Values2D and KeyedValues interfaces in the DataUtilities class, allowing us to control the behavior and data returned by these dependencies, isolating the logic of the class.
+
 ###Table here - TBC
 
 Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
@@ -122,8 +123,31 @@ Every member of the team was actively involved in the entire exercise. The proje
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Text…
+Certainly, I'll update the "Difficulties Encountered, Challenges Overcome, and Lessons Learned" section with the new challenge you mentioned. Here's the revised version:
+
+### 5. Difficulties Encountered, Challenges Overcome, and Lessons Learned
+
+We did encounter a couple of challenges during our project, which are highlighted below;
+
+1. **Environment Setup and Version Compatibility:** Setting up the testing environment proved to be quite challenging than anticipated. We encountered issues with version compatibility between Eclipse, Java, and the required libraries (JUnit and JMock). We overcame this by dedicating a session to ensure everyone had a working environment.
+
+2. **Time Management:** Balancing the workload and meeting the deadline required careful planning and time management. Regular progress checks and adjustments were necessary to ensure that all tasks were completed on time.
+
+Lessons learned:
+
+1. **Importance of Consistent Development Environments:** Ensuring all team members have compatible software versions from the start can save significant time and prevent frustration.
+
+2. **Value of Mocking Frameworks:** While initially challenging, mocking frameworks like jMock can be powerful tools for unit testing, especially when dealing with complex dependencies. Investing time in learning these tools pays off in more robust and isolated tests.
+
+3. **Effective Communication and Collaboration:** Regular check-ins and pair programming sessions were crucial in overcoming technical challenges and ensuring consistent progress.
+
+4. **Thorough Understanding of Specifications:** Careful analysis and group discussion of the Javadoc specifications proved crucial for effective test-case design, especially when dealing with ambiguities or incomplete information.
+
+These experiences have not only improved our technical skills but also enhanced our ability to work as a team in a software testing environment.
+
 
 # 6 Comments/feedback on the lab itself
 
-Text…
+- The instructions and guidelines for this assignment were clear and well-structured, making it easier to understand and implement the test cases effectively.
+- The lab exercise provided valuable experience in designing and executing structured test cases using black-box testing techniques.
+- Using JMock to simulate dependencies was insightful and helped us understand how to test methods that rely on external objects.
