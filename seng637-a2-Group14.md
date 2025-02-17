@@ -69,7 +69,16 @@ Application: For Range.contains(), boundary values included the lower and upper 
 - Mocking
 We used mocking to simulate real objects, allowing us to isolate the unit under test. We used jMock to mock dependencies on interfaces like Values2D and KeyedValues.
 Application: We used jMock to simulate the Values2D and KeyedValues interfaces in the DataUtilities class, allowing us to control the behavior and data returned by these dependencies, isolating the logic of the class.
+###Table here - TBC
 
+Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
+
+**2.6 Test Logistics**
+The team began testing once the following conditions were met.
+
+- Software Under Test (SUT) was available for testing.
+- Test Specification were finalized created.
+- The test environment was properly set up.
 # 3 Test cases developed
 
 
@@ -81,7 +90,24 @@ you have explained in the test strategy section //above
 
 # 4 How the team work/effort was divided and managed
 
-Text…
+Every member of the team was actively involved in the entire exercise. The project was executed as follows:
+
+| **Task**                          | **Responsibility**                                                                 |
+|------------------------------------|------------------------------------------------------------------------------------|
+| **Requirement Analysis**           | All team members reviewed the Javadoc API specifications for the Range and DataUtilities classes. |
+| **Test-Case Design**               | Each member designed test cases for a subset of methods, applying equivalence partitioning and boundary value analysis. |
+| **Test Code Implementation**      | Each member implemented the test cases they designed, using JUnit and JMock as needed. |
+| **Test Execution & Result Analysis**| All team members participated in executing the test suite, analyzing results, identifying failures, and reporting potential defects. |
+| **Reporting**                      | The report was collaboratively written, with each member contributing to different sections. |
+
+**Communication & Collaboration**: Regular meetings (both in-person and virtual) and a shared online document were used to facilitate communication. This ensured that all team members were aware of progress and challenges encountered.
+
+
+
+
+
+
+
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
