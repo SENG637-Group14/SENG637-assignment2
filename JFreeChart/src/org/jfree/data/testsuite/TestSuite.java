@@ -33,7 +33,7 @@ public class TestSuite {
  // -------------- Central Value Tests --------------
 
     /**
-     * Test case: Get central value of the range.
+     * Test case: To get central value of the range.
      * Test strategy: The Javadoc states "Returns the central (or median) value for the range."
      * This test verifies the central value calculation for a simple range.
      */

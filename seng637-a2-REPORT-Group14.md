@@ -1,6 +1,6 @@
-# **SENG 637 - Software Testing, Reliability, and Quality**
+**SENG 637 - Software Testing, Reliability, and Quality**
 
-# **Lab. Report \#2 – Requirements-Based Test Generation**
+**Lab. Report \#2 – Requirements-Based Test Generation**
 
 | Group \#: 14     |     |
 | -------------- | --- |
@@ -9,6 +9,15 @@
 | Gabriel Gabari |     |
 | Remi Oyediji   |     |
 | Taiwo Oyewole  |     |
+
+**Table of Contents**
+- [1. Introduction](#1-introduction)
+- [2. Detailed description of unit test strategy](#2-detailed-description-of-unit-test-strategy)
+- [3. Test cases developed](#3-test-cases-developed)
+- [4. How the team work/effort was divided and managed](#4-how-the-team-workeffort-was-divided-and-managed)
+- [5. Difficulties encountered, challenges overcome, and lessons learned](#5-difficulties-encountered-challenges-overcome-and-lessons-learned)
+- [6. Comments/feedback on the lab itself](#6-commentsfeedback-on-the-lab-itself)
+
 
 # 1. Introduction
 This report presents the black-box testing conducted by Group 14 members. We evaluated 10 methods—five each from the Range class and the DataUtilities class within the org.jfree.data package to validate the correctness and reliability of these methods.
@@ -229,12 +238,6 @@ Every member of the team was actively involved in the entire exercise. The proje
 | **Reporting**                      | The report was collaboratively written, with each member contributing to different sections. |
 
 **Communication & Collaboration**: Regular meetings (both in-person and virtual) and a shared online document were used to facilitate communication. This ensured that all team members were aware of progress and challenges encountered.
-
-
-
-
-
-
 
 
 # 5. Difficulties encountered, challenges overcome, and lessons learned
