@@ -17,6 +17,10 @@ In our approach, we applied structured testing techniques to ensure the system u
 
 In the following sections, we document our testing strategy, the test cases we developed, and the overall outcomes of the exercise.
 
+Link to the TestSuite Developed;[TestSuite.java](https://github.com/SENG637-Group14/SENG637-assignment2/tree/main/JFreeChart/src/org/jfree/data/testsuite
+) 
+
+
 # 2 Detailed description of unit test strategy
 
 For our test strategy, we aimed for high coverage by testing both basic functionality and edge cases. To achieve this, we used equivalence partitioning and boundary value analysis to cover different input scenarios. All test cases were based on the API specifications in the Javadoc.
@@ -58,8 +62,8 @@ By varying the selected methods, we ensured that our test suite demonstrated bot
 
 For test techniques, we considered the following;
 
-- Equivalence Partitioning (EP)
-The EP divides the input domain into classes where inputs within each class are expected to behave similarly. This reduces redundancy in testing.
+- Equivalence Class (EC)
+The EC divides the input domain into classes where inputs within each class are expected to behave similarly. This reduces redundancy in testing.
 Application: For Range.contains(), we partitioned the input double value into three classes: "within the range," "below the range," and "above the range."
 
 - Boundary Value Analysis (BVA)
@@ -70,6 +74,21 @@ Application: For Range.contains(), boundary values included the lower and upper 
 We used Mocking to simulate real objects, allowing us to isolate the unit under test and test the logic within "value2D" and "KeyedValues" objects. We used jMock to mock dependencies on these interfaces, since these interfaces do not have concrete implementations in our test environment.
 
 This allowed us to simulate method calls, control return values, and isolate the behavior of DataUtilities methods without needing actual implementations. For example, when testing calculateColumnTotal(), we mocked a Values2D object to return predefined row counts and values, ensuring controlled and repeatable test scenarios.
+
+** Benefits and Drawbacks of Mocking**
+As much as there are benefits from mocking in terms of Isolation of Units, Control Over Dependencies, Testing in the Absence of Implementations and Simplified Test Setup, there are still drawbacks to this approach, just to mention a few;
+
+Drawbacks of Mocking
+
+1. **Over-Specification**
+   - Mocking can lead to tests becoming tightly coupled to the implementation, causing them to break even if the behavior remains the same. If the code changes but functionality doesn’t, mocks may need to be updated, leading to brittle tests.
+
+2. **False Positives**
+   - Incorrectly set up mocks can cause tests to pass even when the unit isn't functioning correctly, which can give a false sense of security and cause issues later.
+
+3. **Increased Complexity**
+   - Mocking could potientially add complexity to tests. Proper mock setup can be challenging and requires familiarity with mocking frameworks. This complexity can make tests harder to understand and maintain, especially if mock setups become intricate.
+
 
 
 **2.5 Test Design Summary**
@@ -116,61 +135,77 @@ System Under Test: JFreeChart
 
 # 3 Test cases developed
 
-This section outlines the test cases designed to verify the functionality of the DataUtilities and Range classes. The tests are structured according to the source code methods they assess and are aligned with the input partitions defined in the test strategy.
+This section outlines the test cases designed to verify the functionality of the DataUtilities and Range classes. The tests are structured according to the source code methods they assess and are aligned with the test design summary defined in the test strategy.
 
+**Range Test Methods**
 
-| Class  | Method  | Test Method | Description |
-|--------|----------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------|
-| `Range` | `getCentralValue()` | `testCentralValueShouldBeZero()` | Central value calculation for a simple range. |
-|  |  | `testCentralValuePositiveRange()` | Central value for a positive range. |
-|  |  | `testCentralValueNegativeRange()` | Central value for a negative range. |
-|  |  | `testCentralValueSameBounds()` | Central value when the lower and upper bounds are the same. |
-|  |  | `testCentralValueExtremeRange()` | Central value for an extreme range. |
-|  | `getLowerBound()` | `testGetLowerBoundPositiveRange()` | Lower bound of a positive range. |
-|  |  | `testGetLowerBoundNegativeRange()` | Lower bound of a negative range. |
-|  |  | `testGetLowerBoundExtremeRange()` | Lower bound of an extreme range. |
-|  | `getUpperBound()` | `testGetUpperBoundPositiveRange()` | Upper bound of a positive range. |
-|  |  | `testGetUpperBoundNegativeRange()` | Upper bound of a negative range. |
-|  |  | `testGetUpperBoundExtremeRange()` | Upper bound of an extreme range. |
-|  |  | `testGetUpperBoundPositiveInfinity()` | Upper bound with positive infinity. |
-|  | `contains(double value)` | `testContainsWithinRange()` | Value within range. |
-|  |  | `testContainsLowerBound()` | Value at the lower bound. |
-|  |  | `testContainsUpperBound()` | Value at the upper bound. |
-|  |  | `testDoesNotContainOutsideRange()` | Value outside the range. |
-|  |  | `testDoesNotContainExtremeValue()` | Extreme values not in range. |
-|  | `combine(Range range1, Range range2)` | `testCombineNullRanges()` | Combining two null ranges. |
-|  |  | `testCombineOneNullRange()` | Combining a null range with a valid range. |
-|  |  | `testCombineNonOverlappingRanges()` | Combining two non-overlapping ranges. |
-|  |  | `testCombineOverlappingRanges()` | Combining two overlapping ranges. |
-|  |  | `testCombineAdjacentRanges()` | Combining two adjacent ranges. |
-|  |  | `testCombineIdenticalRanges()` | Combining two identical ranges. |
-|  |  | `testCombineExtremeRanges()` | Combining ranges with extreme values. |
-| `DataUtilities` | `calculateColumnTotal(Values2D data, int column)` | `testCalculateColumnTotalForTwoValues()` | Calculate column total with valid data. |
-|               |                                            | `testCalculateColumnTotalForPositiveValues()` | Calculate column total with positive values. |
-|               |                                            | `testCalculateColumnTotalForNegativeValues()` | Calculate column total with negative values. |
-|               |                                            | `testCalculateColumnTotalForMixedValues()` | Calculate column total with mixed values. |
-|               |                                            | `testCalculateColumnTotalForEmptyDataSet()` | Calculate column total for an empty data set. |
-|               |                                            | `testCalculateColumnTotalForSingleValue()` | Calculate column total for a single value. |
-|               |                                            | `testCalculateColumnTotalForNullData()` | Calculate column total for null data. |
-|  | `calculateRowTotal(Values2D data, int row)` | `testCalculateRowTotalValidDataPositiveValues()` | Calculate row total for valid positive values. |
-|               |                                            | `testCalculateRowTotalValidDataNegativeValues()` | Calculate row total for valid negative values. |
-|               |                                            | `testCalculateRowTotalNullData()` | Calculate row total for null data. |
-|               |                                            | `testCalculateRowTotalEmptyDataSet()` | Calculate row total for an empty dataset. |
-|               |                                            | `testCalculateRowTotalMixedValues()` | Calculate row total for mixed values. |
-|               |                                            | `testCalculateRowTotalSingleValue()` | Calculate row total for a single value. |
-|  | `createNumberArray(double[] data)`       | `testCreateNumberArrayEmptyArray()` | Create a number array from an empty array. |
-|               |                                            | `testCreateNumberArrayValidData()` | Create a number array from valid data. |
-|               |                                            | `testCreateNumberArrayNullData()` | Create a number array from null data. |
-|  | `createNumberArray2D(double[][] data)`   | `testCreateNumberArray2DEmptyArray()` | Create a number array from an empty array. |
-|               |                                            | `testCreateNumberArray2DValidData()` | Create a number array from valid data. |
-|               |                                            | `testCreateNumberArray2DNullData()` | Create a number array from null data. |
-|               |                                            | `testCreateNumberArray2DSingleRow()` | Create a number array from a single row. |
-|               |                                            | `testCreateNumberArray2DSingleColumn()` | Create a number array from a single column. |
-|               |                                            | `testCreateNumberArray2DNullRow()` | Create a number array from a null row. |
-|  | `getCumulativePercentages(KeyedValues data)` | `testGetCumulativePercentagesValidData()` | Calculate cumulative percentages for valid data. |
-|               |                                            | `testGetCumulativePercentagesNullData()` | Handle null data input. |
+| #  | Test Method                          | Equivalence Class        | Boundary Values                                  | Basis for Selection/Justification |
+|----|--------------------------------------|-------------------------|-------------------------------------------------|----------------------------------|
+| 1  | `centralValueShouldBeZero()`         | Range Crossing Zero     | -1, 1                                           | Tests the central value of a range crossing zero, with -1 and 1 as boundary values. |
+| 2  | `testCentralValuePositiveRange()`    | Positive Range         | 2, 6                                           | Tests the central value of a positive range (2 to 6). |
+| 3  | `testCentralValueNegativeRange()`    | Negative Range         | -6, -2                                         | Tests the central value of a negative range (-6 to -2). |
+| 4  | `testCentralValueSameBounds()`       | Same Bounds            | 5, 5                                           | Tests the central value when the bounds are the same. |
+| 5  | `testCentralValueExtremeRange()`     | Extreme Range          | -Double.MAX_VALUE, Double.MAX_VALUE            | Tests handling of extreme double values. |
+| 6  | `lowerBoundShouldBeNegativeOne()`    | Negative Value         | -1                                             | Checks lower bound for the default range. |
+| 7  | `testLowerBoundPositiveRange()`      | Positive Range         | 2                                              | Checks lower bound for a positive range (2 to 6). |
+| 8  | `testLowerBoundNegativeRange()`      | Negative Range         | -6                                             | Checks lower bound for a negative range (-6 to -2). |
+| 9  | `testLowerBoundExtremeRange()`       | Extreme Range          | -Double.MAX_VALUE                              | Checks lower bound with extreme values. |
+| 10 | `upperBoundShouldBeOne()`            | Positive Value         | 1                                              | Checks upper bound for the default range. |
+| 11 | `testUpperBoundPositiveRange()`      | Positive Range         | 6                                              | Checks upper bound for a positive range (2 to 6). |
+| 12 | `testUpperBoundNegativeRange()`      | Negative Range         | -2                                             | Checks upper bound for a negative range (-6 to -2). |
+| 13 | `testUpperBoundExtremeRange()`       | Extreme Range          | Double.MAX_VALUE                               | Checks upper bound with extreme values. |
+| 14 | `testUpperBoundPositiveInfinity()`   | Positive Infinity      | -1000, Double.POSITIVE_INFINITY                | Tests handling of positive infinity. |
+| 15 | `testRangeContainsZero()`            | Value Within Range     | -1, 0, 1                                       | Tests if 0 is within the default range (-1, 1). |
+| 16 | `testRangeContainsValueWithin()`     | Value Within Range     | -5, 3, 5                                       | Checks if 3 is within the range (-5, 5). |
+| 17 | `testRangeDoesNotContainValue()`     | Value Outside Range    | 1, 10, -1                                      | Tests if -1 is outside the range (1, 10). |
+| 18 | `testRangeContainsLowerBound()`      | Boundary Value (Lower) | -1                                             | Checks if -1 is contained in the default range. |
+| 19 | `testRangeContainsUpperBound()`      | Boundary Value (Upper) | 1                                              | Checks if 1 is contained in the default range. |
+| 20 | `testRangeDoesNotContainExtremeValue()` | Value Outside Range | -1, 1, 100                                     | Tests if 100 is outside the default range. |
+| 21 | `testCombineNullRanges()`            | Null Ranges           | N/A                                            | Tests combining two null ranges. |
+| 22 | `testCombineOneNullRange()`          | One Null Range        | 1, 10                                          | Tests combining a valid range with a null range. |
+| 23 | `testCombineNonOverlappingRanges()`  | Non-Overlapping Ranges | 1, 10, 15, 20                                  | Tests combining two non-overlapping ranges (1 to 10, 15 to 20). |
+| 24 | `testCombineOverlappingRanges()`     | Overlapping Ranges    | -5, 5, 3, 10                                   | Tests combining overlapping ranges (-5 to 5, 3 to 10). |
+| 25 | `testCombineAdjacentRanges()`        | Adjacent Ranges       | 5, 10, 15                                      | Tests combining adjacent ranges (5 to 10, 10 to 15). |
+| 26 | `testCombineIdenticalRanges()`       | Identical Ranges      | 3, 7                                           | Tests combining two identical ranges (3 to 7). |
+| 27 | `testCombineExtremeRanges()`         | Extreme Ranges        | Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, -100, 100 | Tests combining ranges with extreme values. |
+
+**DataUtilities Test Methods**
+
+| #  | Test Cases                                        | **Equivalence Class**      | **Boundary Values?** | **State Control** | **Justification** |
+|----|--------------------------------------------------|--------------------------|---------------------|------------------|------------------|
+| 1  | Calculate column total for two values           | General Numbers          | No                  | Normal           | Checks sum of two numbers. |
+| 2  | Calculate column total for positive values      | Positive Numbers         | No                  | Normal           | Ensures correct summation of positive values. |
+| 3  | Calculate column total for negative values      | Negative Numbers         | No                  | Normal           | Ensures summation of negative values works correctly. |
+| 4  | Calculate column total for mixed values         | Mixed Numbers            | No                  | Normal           | Tests summation of both positive and negative values. |
+| 5  | Calculate column total for an empty dataset     | Empty Dataset            | **Yes** (Lower)     | Normal           | Ensures empty input returns zero. |
+| 6  | Calculate column total for a single value       | Single Value             | **Yes** (Lower)     | Normal           | Ensures function handles a single-element array correctly. |
+| 7  | Calculate column total with null data           | **Error Handling (Null)** | **N/A**             | Exception        | Ensures `null` input throws an error. |
+| 8  | Calculate row total for two values              | General Numbers          | No                  | Normal           | Tests sum of two values in a row. |
+| 9  | Calculate row total with positive values        | Positive Numbers         | No                  | Normal           | Ensures summation of positive values works correctly. |
+| 10 | Calculate row total with negative values        | Negative Numbers         | No                  | Normal           | Ensures summation of negative values works correctly. |
+| 11 | Calculate row total with mixed values           | Mixed Numbers            | No                  | Normal           | Ensures summation of both positive and negative values. |
+| 12 | Calculate row total for an empty dataset        | Empty Dataset            | **Yes** (Lower)     | Normal           | Ensures empty input returns zero. |
+| 13 | Calculate row total for a single value          | Single Value             | **Yes** (Lower)     | Normal           | Ensures function handles a single-element array correctly. |
+| 14 | Calculate row total with null data              | **Error Handling (Null)** | **N/A**             | Exception        | Ensures `null` input throws an error. |
+| 15 | Create a 2D Number array with an empty array    | Empty Dataset            | **Yes** (Lower)     | Normal           | Ensures empty input does not crash. |
+| 16 | Create a 2D Number array with valid data        | General Numbers          | No                  | Normal           | Ensures correct conversion of valid data. |
+| 17 | Create a 2D Number array with null data         | **Error Handling (Null)** | **N/A**             | Exception        | Ensures `null` input throws an error. |
+| 18 | Get highest in column for positive values       | Positive Numbers         | No                  | Normal           | Ensures correct maximum selection. |
+| 19 | Get highest in column for mixed values          | Mixed Numbers            | No                  | Normal           | Ensures correct maximum selection. |
+| 20 | Get highest in column for negative values       | Negative Numbers         | No                  | Normal           | Ensures correct maximum selection. |
+| 21 | Get highest in column for an empty dataset      | Empty Dataset            | **Yes** (Lower)     | Exception        | Ensures an empty dataset returns an error or default value. |
+| 22 | Get lowest in column for positive values        | Positive Numbers         | No                  | Normal           | Ensures correct minimum selection. |
+| 23 | Get lowest in column for mixed values           | Mixed Numbers            | No                  | Normal           | Ensures correct minimum selection. |
+| 24 | Get lowest in column for negative values        | Negative Numbers         | No                  | Normal           | Ensures correct minimum selection. |
+| 25 | Get lowest in column for an empty dataset       | Empty Dataset            | **Yes** (Lower)     | Exception        | Ensures an empty dataset returns an error or default value. |
+| 26 | Get highest in row for positive values          | Positive Numbers         | No                  | Normal           | Ensures correct maximum selection. |
+| 27 | Get highest in row with mixed values            | Mixed Numbers            | No                  | Normal           | Ensures correct maximum selection. |
+| 28 | Get lowest in row with mixed values             | Mixed Numbers            | No                  | Normal           | Ensures correct minimum selection. |
+
 
 Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
+
+You can find and download an excel sheet of the test result (/Test_Results_Summary_Failed.csv) [here](https://github.com/SENG637-Group14/SENG637-assignment2/blob/main/Test_Results_Summary_Failed.csv) 
 
 
 # 4 How the team work/effort was divided and managed
