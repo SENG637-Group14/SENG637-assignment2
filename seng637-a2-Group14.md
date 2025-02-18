@@ -72,7 +72,20 @@ We used Mocking to simulate real objects, allowing us to isolate the unit under 
 This allowed us to simulate method calls, control return values, and isolate the behavior of DataUtilities methods without needing actual implementations. For example, when testing calculateColumnTotal(), we mocked a Values2D object to return predefined row counts and values, ensuring controlled and repeatable test scenarios.
 
 
-###Table here - TBC
+**2.5 Input Partitions Design**
+
+| Class  | Method | Equivalence Partitions  |
+|--------|-------------|-----------------------------|
+| `Range` | `getCentralValue()` | Positive range, Negative range, Range crossing zero, Same bounds, Extreme range |
+|   | `getLowerBound()` | Positive range, Negative range, Extreme range |
+|   | `getUpperBound()` | Positive range, Negative range, Extreme range, Positive Infinity |
+|   | `contains(double value)` | Value within range, Does not contain value, Lower bound, Upper bound, Does not contain extreme value |
+|   | `combine(Range range1, Range range2)` | Null ranges, One Null Range, Non-Overlapping Ranges, Overlapping Ranges, Adjacent Ranges, Identical Ranges, Extreme Ranges |
+| `DataUtilities` | `calculateColumnTotal(Values2D data, int column)` | Two values, Positive values, Negative values, Mixed values, Empty data set |
+|  | `calculateRowTotal(Values2D data, int row)` | Single value, Positive values, Negative values, Mixed values, Empty data set, Null data |
+|  | `createNumberArray(double[] data)` | Empty array, Valid data, Null data |
+|  | `createNumberArray2D(double[][] data)` | Empty array, Valid data, Null data, Single row, Single column, Null row |
+|  | `getCumulativePercentages(KeyedValues data)` | Valid data, Null data |
 
 Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
 
@@ -101,6 +114,38 @@ Text…
 // write down the name of the test methods and classes. Organize the based on
 the source code method // they test. identify which tests cover which partitions
 you have explained in the test strategy section //above
+
+
+
+| Class  | Method  | Test Method | Coverage |
+|--------|----------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------|
+| `Range` | `getCentralValue()` | `centralValueShouldBeZero()` | Central value calculation for a simple range. |
+|  |  | `testCentralValuePositiveRange()` | Central value for a positive range. |
+|  |  | `testCentralValueNegativeRange()` | Central value for a negative range. |
+|  |  | `testCentralValueSameBounds()` | Central value when the lower and upper bounds are the same. |
+|  |  | `testCentralValueExtremeRange()` | Central value for an extreme range. |
+| `DataUtilities` | `calculateColumnTotal(Values2D data, int column)` | `testCalculateColumnTotalForTwoValues()` | Calculate column total with valid data. |
+|  |  | `testCalculateColumnTotalForPositiveValues()` | Calculate column total with positive values. |
+|  |  | `testCalculateColumnTotalForNegativeValues()` | Calculate column total with negative values. |
+|  |  | `testCalculateColumnTotalForMixedValues()` | Calculate column total with mixed values. |
+|  |  | `testCalculateColumnTotalForEmptyDataSet()` | Calculate column total with an empty data set. |
+|  |  | `testCalculateColumnTotalForSingleValue()` | Calculate column total for a single value. |
+|  |  | `testCalculateColumnTotalForNullData()` | Calculate column total for null data. |
+| `DataUtilities` | `calculateRowTotal(Values2D data, int row)` | `testCalculateRowTotalValidDataPositiveValues()` | Calculate row total for valid positive values. |
+|  |  | `testCalculateRowTotalValidDataNegativeValues()` | Calculate row total for valid negative values. |
+|  |  | `testCalculateRowTotalNullData()` | Calculate row total for null data. |
+|  |  | `testCalculateRowTotalEmptyDataSet()` | Calculate row total for an empty dataset. |
+|  |  | `testCalculateRowTotalMixedValues()` | Calculate row total for mixed values. |
+|  |  | `testCalculateRowTotalSingleValue()` | Calculate row total for a single value. |
+| `DataUtilities` | `createNumberArray2D(double[][] data)` | `testCreateNumberArray2DEmptyArray()` | Create a number array from an empty array. |
+|  |  | `testCreateNumberArray2DValidData()` | Create a number array from valid data. |
+|  |  | `testCreateNumberArray2DNullData()` | Create a number array from null data. |
+|  |  | `testCreateNumberArray2DSingleRow()` | Create a number array from a single row. |
+|  |  | `testCreateNumberArray2DSingleColumn()` | Create a number array from a single column. |
+|  |  | `testCreateNumberArray2DNullRow()` | Create a number array from a null row. |
+| `DataUtilities` | `getCumulativePercentages(KeyedValues data)` | `testGetCumulativePercentagesValidData()` | Calculate cumulative percentages for valid data. |
+
+
 
 # 4 How the team work/effort was divided and managed
 
