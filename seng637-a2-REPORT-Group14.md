@@ -78,7 +78,7 @@ This allowed us to simulate method calls, control return values, and isolate the
 ** Benefits and Drawbacks of Mocking**
 As much as there are benefits from mocking in terms of Isolation of Units, Control Over Dependencies, Testing in the Absence of Implementations and Simplified Test Setup, there are still drawbacks to this approach, just to mention a few;
 
-Drawbacks of Mocking
+**Drawbacks of Mocking**
 
 1. **Over-Specification**
    - Mocking can lead to tests becoming tightly coupled to the implementation, causing them to break even if the behavior remains the same. If the code changes but functionality doesn’t, mocks may need to be updated, leading to brittle tests.
@@ -204,6 +204,13 @@ This section outlines the test cases designed to verify the functionality of the
 
 
 Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
+
+**Test Summary**
+Number of Test cases: 55
+Test Passed: 29
+Test Failed: 16
+Errors: 10
+
 
 You can find and download an excel sheet of the test result (/Test_Results_Summary_Failed.csv) [here](https://github.com/SENG637-Group14/SENG637-assignment2/blob/main/Test_Results_Summary_Failed.csv) 
 
