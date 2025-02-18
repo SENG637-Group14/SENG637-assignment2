@@ -532,4 +532,68 @@ public class DataUtilitiesTest {
         // verify
         assertEquals("Cumulative percentage should be 1.0", 1.0, result.getValue(0).doubleValue(), .000000001d);
     }
+    // ---------------------------- createNumberArray Tests ----------------------------
+
+
+    /**
+     * Test case: Create a Number array with valid data.
+     * Test strategy: The Javadoc states "Constructs an array of Number objects from an array of double primitives."
+     * This test checks the basic case of converting an array of doubles to an array of Numbers.
+     */
+    @Test
+    public void testCreateNumberArrayValidData() {
+        double[] data = {1.1, 2.2, 3.3};
+
+        // exercise
+        Number[] result = DataUtilities.createNumberArray(data);
+
+        // verify
+        Number[] expected = {1.1, 2.2, 3.3};
+        assertArrayEquals("Number array should match the expected values", expected, result);
+    }
+
+    /**
+     * Test case: Create a Number array with null data.
+     * Test strategy: The Javadoc states "Constructs an array of Number objects from an array of double primitives."
+     * This test checks that null data results in an InvalidParameterException.
+     */
+    @Test(expected = InvalidParameterException.class)
+    public void testCreateNumberArrayNullData() {
+        // exercise
+        DataUtilities.createNumberArray(null);
+    }
+
+    /**
+     * Test case: Create a Number array with an empty array.
+     * Test strategy: The Javadoc states "Constructs an array of Number objects from an array of double primitives."
+     * This test checks the creation of the array when the input array is empty.
+     */
+    @Test
+    public void testCreateNumberArrayEmptyArray() {
+        double[] data = {};
+
+        // exercise
+        Number[] result = DataUtilities.createNumberArray(data);
+
+        // verify
+        Number[] expected = {};
+        assertArrayEquals("Number array should be empty", expected, result);
+    }
+
+    /**
+     * Test case: Create a Number array with a single value.
+     * Test strategy: The Javadoc states "Constructs an array of Number objects from an array of double primitives."
+     * This test checks that a single value in the input array returns that value.
+     */
+    @Test
+    public void testCreateNumberArraySingleValue() {
+        double[] data = {7.5};
+
+        // exercise
+        Number[] result = DataUtilities.createNumberArray(data);
+
+        // verify
+        Number[] expected = {7.5};
+        assertArrayEquals("Number array should match the expected value", expected, result);
+    }
 }
