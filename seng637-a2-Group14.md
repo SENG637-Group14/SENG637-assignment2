@@ -111,7 +111,7 @@ System Under Test: JFreeChart
 This section outlines the test cases designed to verify the functionality of the DataUtilities and Range classes. The tests are structured according to the source code methods they assess and are aligned with the input partitions defined in the test strategy.
 
 
-| Class  | Method  | Test Method | Coverage |
+| Class  | Method  | Test Method | Description |
 |--------|----------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------|
 | `Range` | `getCentralValue()` | `testCentralValueShouldBeZero()` | Central value calculation for a simple range. |
 |  |  | `testCentralValuePositiveRange()` | Central value for a positive range. |
