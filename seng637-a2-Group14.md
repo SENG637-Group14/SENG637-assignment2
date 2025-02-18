@@ -88,11 +88,11 @@ This allowed us to simulate method calls, control return values, and isolate the
 
 | Method                                          | Technique Used    |
 |-------------------------------------------------|-------------------|
-| `calculateColumnTotal(Values2D data, int column)` | State Control, Equivalence Class, Boundary Value Analysis     |
-| `testCalculateColumnTotalForTwoValues()`         | State Control, Equivalence Class, Boundary Value Analysis    |
-| `testCalculateColumnTotalForPositiveValues()`    | State Control, Equivalence Class, Boundary Value Analysis     |
-| `testCalculateColumnTotalForNegativeValues()`    | State Control, Equivalence Class, Boundary Value Analysis     |
-| `testCalculateColumnTotalForMixedValues()`       | State Control, Equivalence Class, Boundary Value Analysis    |
+| `calculateColumnTotal(Values2D data, int column)` | State Control, Equivalence Class     |
+| `testCalculateColumnTotalForTwoValues()`         | State Control, Equivalence Class    |
+| `testCalculateColumnTotalForPositiveValues()`    | State Control, Equivalence Class    |
+| `testCalculateColumnTotalForNegativeValues()`    | State Control, Equivalence Class     |
+| `testCalculateColumnTotalForMixedValues()`       | State Control, Equivalence Class    |
 
 In Summary
 We use mocking to control the state of the objects that DataUtilities depends on. This allows us to isolate DataUtilities and test it under specific, controlled conditions. While EC and BVA might not be directly applied to the inputs of DataUtilities, they still guide our selection of the data returned by the mocks to ensure we cover a range of relevant scenarios (positive values, negative values, empty datasets, etc.).
