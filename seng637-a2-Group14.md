@@ -72,22 +72,30 @@ We used Mocking to simulate real objects, allowing us to isolate the unit under 
 This allowed us to simulate method calls, control return values, and isolate the behavior of DataUtilities methods without needing actual implementations. For example, when testing calculateColumnTotal(), we mocked a Values2D object to return predefined row counts and values, ensuring controlled and repeatable test scenarios.
 
 
-**2.5 Input Partitions Design**
+**2.5 Test Design Summary**
 
-| Class  | Method | Equivalence Partitions  |
-|--------|-------------|-----------------------------|
-| `Range` | `getCentralValue()` | Positive range, Negative range, Range crossing zero, Same bounds, Extreme range |
-|   | `getLowerBound()` | Positive range, Negative range, Extreme range |
-|   | `getUpperBound()` | Positive range, Negative range, Extreme range, Positive Infinity |
-|   | `contains(double value)` | Value within range, Does not contain value, Lower bound, Upper bound, Does not contain extreme value |
-|   | `combine(Range range1, Range range2)` | Null ranges, One Null Range, Non-Overlapping Ranges, Overlapping Ranges, Adjacent Ranges, Identical Ranges, Extreme Ranges |
-| `DataUtilities` | `calculateColumnTotal(Values2D data, int column)` | Two values, Positive values, Negative values, Mixed values, Empty data set |
-|  | `calculateRowTotal(Values2D data, int row)` | Single value, Positive values, Negative values, Mixed values, Empty data set, Null data |
-|  | `createNumberArray(double[] data)` | Empty array, Valid data, Null data |
-|  | `createNumberArray2D(double[][] data)` | Empty array, Valid data, Null data, Single row, Single column, Null row |
-|  | `getCumulativePercentages(KeyedValues data)` | Valid data, Null data |
+**Range Test Methods**
 
-Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
+| Method                           | Technique Used        |
+|----------------------------------|-----------------------|
+| `getCentralValue()`              | Equivalence Class, Boundary Value Analysis |
+| `getLowerBound()`                | Boundary Value Analysis |
+| `getUpperBound()`                | Boundary Value Analysis |
+| `contains(double value)`         | Equivalence Class      |
+| `combine(Range range1, Range range2)` | Equivalence Class      |
+
+**DataUtilities Test Methods**
+
+| Method                                          | Technique Used    |
+|-------------------------------------------------|-------------------|
+| `calculateColumnTotal(Values2D data, int column)` | State Control     |
+| `testCalculateColumnTotalForTwoValues()`         | State Control     |
+| `testCalculateColumnTotalForPositiveValues()`    | State Control     |
+| `testCalculateColumnTotalForNegativeValues()`    | State Control     |
+| `testCalculateColumnTotalForMixedValues()`       | State Control     |
+
+In Summary
+We use mocking to control the state of the objects that DataUtilities depends on. This allows us to isolate DataUtilities and test it under specific, controlled conditions. While EC and BVA might not be directly applied to the inputs of DataUtilities, they still guide our selection of the data returned by the mocks to ensure we cover a range of relevant scenarios (positive values, negative values, empty datasets, etc.).
 
 **2.6 Test Logistics**
 The team began testing once the following conditions were met.
@@ -161,6 +169,8 @@ This section outlines the test cases designed to verify the functionality of the
 |               |                                            | `testCreateNumberArray2DNullRow()` | Create a number array from a null row. |
 |  | `getCumulativePercentages(KeyedValues data)` | `testGetCumulativePercentagesValidData()` | Calculate cumulative percentages for valid data. |
 |               |                                            | `testGetCumulativePercentagesNullData()` | Handle null data input. |
+
+Basis for Selection describes why each method was selected for testing. The DataUtilities methods were all selected because there were only five methods total. For the Range methods, the selection ensured all different types of ranges were tested.
 
 
 # 4 How the team work/effort was divided and managed
