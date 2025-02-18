@@ -117,6 +117,7 @@ In Summary
 We use mocking to control the state of the objects that DataUtilities depends on. This allows us to isolate DataUtilities and test it under specific, controlled conditions. While EC and BVA might not be directly applied to the inputs of DataUtilities, they still guide our selection of the data returned by the mocks to ensure we cover a range of relevant scenarios (positive values, negative values, empty datasets, etc.).
 
 **2.6 Test Logistics**
+
 The team began testing once the following conditions were met.
 
 - Software Under Test (SUT) was available for testing.
