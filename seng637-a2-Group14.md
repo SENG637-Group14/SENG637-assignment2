@@ -198,3 +198,4 @@ These experiences have not only improved our technical skills but also enhanced 
 - The instructions and guidelines for this assignment were clear and well-structured, making it easier to understand and implement the test cases effectively.
 - The lab exercise provided valuable experience in designing and executing structured test cases using black-box testing techniques.
 - Using JMock to simulate dependencies was insightful and helped us understand how to test methods that rely on external objects.
+- For DataUtilities, the methods were not straightforward, requiring a good understanding of the Javadoc to design effective test cases and the use of JMock to mock the Value2D class. This was a good exercise in interpreting API documentation. However, it was noticed that where an InvalidParameterException was expected, none was thrown. Some cases were not properly handled, resulting in a NullPointerException. Overall, it was a nice experience.
