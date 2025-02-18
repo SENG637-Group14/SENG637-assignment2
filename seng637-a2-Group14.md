@@ -15,7 +15,7 @@ This report presents the black-box testing conducted by Group 14 members. We eva
 
 In our approach, we applied structured testing techniques to ensure the system under test (SUT) behaved as expected based on the provided specifications. Through these tests, we confirmed that many functionalities performed as expected while also detecting failures and inconsistencies, revealing potential defects in the implementation.
 
-In the following sections, we document our testing strategy, the test cases we developed, and the overall outcomes of our analysis.
+In the following sections, we document our testing strategy, the test cases we developed, and the overall outcomes of the exercise.
 
 # 2 Detailed description of unit test strategy
 
