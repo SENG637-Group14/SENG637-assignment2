@@ -1,6 +1,6 @@
-**SENG 637 - Software Testing, Reliability, and Quality**
+# **SENG 637 - Software Testing, Reliability, and Quality**
 
-**Lab. Report \#2 – Requirements-Based Test Generation**
+# **Lab. Report \#2 – Requirements-Based Test Generation**
 
 | Group \#: 14     |     |
 | -------------- | --- |
