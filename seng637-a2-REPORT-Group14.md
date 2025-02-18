@@ -10,7 +10,7 @@
 | Remi Oyediji   |     |
 | Taiwo Oyewole  |     |
 
-# 1 Introduction
+# 1. Introduction
 This report presents the black-box testing conducted by Group 14 members. We evaluated 10 methods—five each from the Range class and the DataUtilities class within the org.jfree.data package to validate the correctness and reliability of these methods.
 
 In our approach, we applied structured testing techniques to ensure the system under test (SUT) behaved as expected based on the provided specifications. Through these tests, we confirmed that many functionalities performed as expected while also detecting failures and inconsistencies, revealing potential defects in the implementation.
@@ -21,7 +21,7 @@ Link to the TestSuite Developed;[TestSuite.java](https://github.com/SENG637-Grou
 ) 
 
 
-# 2 Detailed description of unit test strategy
+# 2. Detailed description of unit test strategy
 
 For our test strategy, we aimed for high coverage by testing both basic functionality and edge cases. To achieve this, we used equivalence partitioning and boundary value analysis to cover different input scenarios. All test cases were based on the API specifications in the Javadoc.
 
@@ -134,7 +134,7 @@ IDE: Eclipse
 
 System Under Test: JFreeChart
 
-# 3 Test cases developed
+# 3. Test cases developed
 
 This section outlines the test cases designed to verify the functionality of the DataUtilities and Range classes. The tests are structured according to the source code methods they assess and are aligned with the test design summary defined in the test strategy.
 
@@ -216,7 +216,7 @@ Errors: 10
 You can find and download an excel sheet of the test result (/Test_Results_Summary_Failed.csv) [here](https://github.com/SENG637-Group14/SENG637-assignment2/blob/main/Test_Results_Summary_Failed.csv) 
 
 
-# 4 How the team work/effort was divided and managed
+# 4. How the team work/effort was divided and managed
 
 Every member of the team was actively involved in the entire exercise. The project was executed as follows:
 
@@ -237,7 +237,7 @@ Every member of the team was actively involved in the entire exercise. The proje
 
 
 
-# 5 Difficulties encountered, challenges overcome, and lessons learned
+# 5. Difficulties encountered, challenges overcome, and lessons learned
 
 We did encounter a couple of challenges during our project, which are highlighted below;
 
@@ -258,7 +258,7 @@ Lessons learned:
 These experiences have not only improved our technical skills but also enhanced our ability to work as a team in a software testing environment.
 
 
-# 6 Comments/feedback on the lab itself
+# 6. Comments/feedback on the lab itself
 
 - The instructions and guidelines for this assignment were clear and well-structured, making it easier to understand and implement the test cases effectively.
 - The lab exercise provided valuable experience in designing and executing structured test cases using black-box testing techniques.
