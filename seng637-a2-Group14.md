@@ -190,10 +190,6 @@ Every member of the team was actively involved in the entire exercise. The proje
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Certainly, I'll update the "Difficulties Encountered, Challenges Overcome, and Lessons Learned" section with the new challenge you mentioned. Here's the revised version:
-
-### 5. Difficulties Encountered, Challenges Overcome, and Lessons Learned
-
 We did encounter a couple of challenges during our project, which are highlighted below;
 
 1. **Environment Setup and Version Compatibility:** Setting up the testing environment proved to be quite challenging than anticipated. We encountered issues with version compatibility between Eclipse, Java, and the required libraries (JUnit and JMock). We overcame this by dedicating a session to ensure everyone had a working environment.
