@@ -26,7 +26,7 @@ public class DataUtilitiesTest {
         keyedValues = mockingContext.mock(KeyedValues.class);
     }
 
-
+// ---------------------------- calculateColumnTotal Tests ----------------------------
     /**
      * Test case: Calculate column total with valid data.
      * Test strategy: The Javadoc states "Returns the sum of the values in one column of the supplied data table.
