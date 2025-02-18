@@ -115,36 +115,56 @@ Text…
 the source code method // they test. identify which tests cover which partitions
 you have explained in the test strategy section //above
 
-
-
 | Class  | Method  | Test Method | Coverage |
 |--------|----------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------|
-| `Range` | `getCentralValue()` | `centralValueShouldBeZero()` | Central value calculation for a simple range. |
+| `Range` | `getCentralValue()` | `testCentralValueShouldBeZero()` | Central value calculation for a simple range. |
 |  |  | `testCentralValuePositiveRange()` | Central value for a positive range. |
 |  |  | `testCentralValueNegativeRange()` | Central value for a negative range. |
 |  |  | `testCentralValueSameBounds()` | Central value when the lower and upper bounds are the same. |
 |  |  | `testCentralValueExtremeRange()` | Central value for an extreme range. |
+|  | `getLowerBound()` | `testGetLowerBoundPositiveRange()` | Lower bound of a positive range. |
+|  |  | `testGetLowerBoundNegativeRange()` | Lower bound of a negative range. |
+|  |  | `testGetLowerBoundExtremeRange()` | Lower bound of an extreme range. |
+|  | `getUpperBound()` | `testGetUpperBoundPositiveRange()` | Upper bound of a positive range. |
+|  |  | `testGetUpperBoundNegativeRange()` | Upper bound of a negative range. |
+|  |  | `testGetUpperBoundExtremeRange()` | Upper bound of an extreme range. |
+|  |  | `testGetUpperBoundPositiveInfinity()` | Upper bound with positive infinity. |
+|  | `contains(double value)` | `testContainsWithinRange()` | Value within range. |
+|  |  | `testContainsLowerBound()` | Value at the lower bound. |
+|  |  | `testContainsUpperBound()` | Value at the upper bound. |
+|  |  | `testDoesNotContainOutsideRange()` | Value outside the range. |
+|  |  | `testDoesNotContainExtremeValue()` | Extreme values not in range. |
+|  | `combine(Range range1, Range range2)` | `testCombineNullRanges()` | Combining two null ranges. |
+|  |  | `testCombineOneNullRange()` | Combining a null range with a valid range. |
+|  |  | `testCombineNonOverlappingRanges()` | Combining two non-overlapping ranges. |
+|  |  | `testCombineOverlappingRanges()` | Combining two overlapping ranges. |
+|  |  | `testCombineAdjacentRanges()` | Combining two adjacent ranges. |
+|  |  | `testCombineIdenticalRanges()` | Combining two identical ranges. |
+|  |  | `testCombineExtremeRanges()` | Combining ranges with extreme values. |
 | `DataUtilities` | `calculateColumnTotal(Values2D data, int column)` | `testCalculateColumnTotalForTwoValues()` | Calculate column total with valid data. |
-|  |  | `testCalculateColumnTotalForPositiveValues()` | Calculate column total with positive values. |
-|  |  | `testCalculateColumnTotalForNegativeValues()` | Calculate column total with negative values. |
-|  |  | `testCalculateColumnTotalForMixedValues()` | Calculate column total with mixed values. |
-|  |  | `testCalculateColumnTotalForEmptyDataSet()` | Calculate column total with an empty data set. |
-|  |  | `testCalculateColumnTotalForSingleValue()` | Calculate column total for a single value. |
-|  |  | `testCalculateColumnTotalForNullData()` | Calculate column total for null data. |
-| `DataUtilities` | `calculateRowTotal(Values2D data, int row)` | `testCalculateRowTotalValidDataPositiveValues()` | Calculate row total for valid positive values. |
-|  |  | `testCalculateRowTotalValidDataNegativeValues()` | Calculate row total for valid negative values. |
-|  |  | `testCalculateRowTotalNullData()` | Calculate row total for null data. |
-|  |  | `testCalculateRowTotalEmptyDataSet()` | Calculate row total for an empty dataset. |
-|  |  | `testCalculateRowTotalMixedValues()` | Calculate row total for mixed values. |
-|  |  | `testCalculateRowTotalSingleValue()` | Calculate row total for a single value. |
-| `DataUtilities` | `createNumberArray2D(double[][] data)` | `testCreateNumberArray2DEmptyArray()` | Create a number array from an empty array. |
-|  |  | `testCreateNumberArray2DValidData()` | Create a number array from valid data. |
-|  |  | `testCreateNumberArray2DNullData()` | Create a number array from null data. |
-|  |  | `testCreateNumberArray2DSingleRow()` | Create a number array from a single row. |
-|  |  | `testCreateNumberArray2DSingleColumn()` | Create a number array from a single column. |
-|  |  | `testCreateNumberArray2DNullRow()` | Create a number array from a null row. |
-| `DataUtilities` | `getCumulativePercentages(KeyedValues data)` | `testGetCumulativePercentagesValidData()` | Calculate cumulative percentages for valid data. |
-
+|               |                                            | `testCalculateColumnTotalForPositiveValues()` | Calculate column total with positive values. |
+|               |                                            | `testCalculateColumnTotalForNegativeValues()` | Calculate column total with negative values. |
+|               |                                            | `testCalculateColumnTotalForMixedValues()` | Calculate column total with mixed values. |
+|               |                                            | `testCalculateColumnTotalForEmptyDataSet()` | Calculate column total for an empty data set. |
+|               |                                            | `testCalculateColumnTotalForSingleValue()` | Calculate column total for a single value. |
+|               |                                            | `testCalculateColumnTotalForNullData()` | Calculate column total for null data. |
+|  | `calculateRowTotal(Values2D data, int row)` | `testCalculateRowTotalValidDataPositiveValues()` | Calculate row total for valid positive values. |
+|               |                                            | `testCalculateRowTotalValidDataNegativeValues()` | Calculate row total for valid negative values. |
+|               |                                            | `testCalculateRowTotalNullData()` | Calculate row total for null data. |
+|               |                                            | `testCalculateRowTotalEmptyDataSet()` | Calculate row total for an empty dataset. |
+|               |                                            | `testCalculateRowTotalMixedValues()` | Calculate row total for mixed values. |
+|               |                                            | `testCalculateRowTotalSingleValue()` | Calculate row total for a single value. |
+|  | `createNumberArray(double[] data)`       | `testCreateNumberArrayEmptyArray()` | Create a number array from an empty array. |
+|               |                                            | `testCreateNumberArrayValidData()` | Create a number array from valid data. |
+|               |                                            | `testCreateNumberArrayNullData()` | Create a number array from null data. |
+|  | `createNumberArray2D(double[][] data)`   | `testCreateNumberArray2DEmptyArray()` | Create a number array from an empty array. |
+|               |                                            | `testCreateNumberArray2DValidData()` | Create a number array from valid data. |
+|               |                                            | `testCreateNumberArray2DNullData()` | Create a number array from null data. |
+|               |                                            | `testCreateNumberArray2DSingleRow()` | Create a number array from a single row. |
+|               |                                            | `testCreateNumberArray2DSingleColumn()` | Create a number array from a single column. |
+|               |                                            | `testCreateNumberArray2DNullRow()` | Create a number array from a null row. |
+|  | `getCumulativePercentages(KeyedValues data)` | `testGetCumulativePercentagesValidData()` | Calculate cumulative percentages for valid data. |
+|               |                                            | `testGetCumulativePercentagesNullData()` | Handle null data input. |
 
 
 # 4 How the team work/effort was divided and managed
