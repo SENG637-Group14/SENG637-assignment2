@@ -1,0 +1,20 @@
+No.,Class,Method Tested,Test Cases,Test Strategy,Results
+1,RangeTest,testUpperBoundPositiveRange,Upper bound should be 6.0,Testing upper bound calculation for positive range,"FAILED (Expected 6.0, got 2.0)"
+2,RangeTest,testUpperBoundNegativeRange,Upper bound should be -2.0,Testing upper bound calculation for negative range,"FAILED (Expected -2.0, got -6.0)"
+3,RangeTest,testUpperBoundExtremeRange,Upper bound should be Double.MAX_VALUE,Testing extreme upper bound handling,"FAILED (Expected Double.MAX_VALUE, got -Double.MAX_VALUE)"
+4,RangeTest,testUpperBoundPositiveInfinity,Upper bound should be Double.POSITIVE_INFINITY,Testing positive infinity as upper bound,"FAILED (Expected Infinity, got -1000.0)"
+5,RangeTest,testCombineNonOverlappingRanges,Combining non-overlapping ranges should return correct range,Validating correct merging of non-overlapping ranges,FAILED (IllegalArgumentException: lower > upper)
+6,RangeTest,testCombineOverlappingRanges,Combining overlapping ranges should merge properly,Validating correct merging of overlapping ranges,FAILED (IllegalArgumentException: lower > upper)
+7,RangeTest,testCombineAdjacentRanges,Combining adjacent ranges should return a single range,Validating correct merging of adjacent ranges,FAILED (IllegalArgumentException: lower > upper)
+8,RangeTest,testCombineExtremeRanges,Combining extreme ranges should handle properly,Handling extreme ranges in combination,FAILED (IllegalArgumentException: lower > upper)
+9,RangeTest,upperBoundShouldBeOne,Upper bound should be 1,Ensuring correct upper bound retrieval,"FAILED (Expected 1.0, got -1.0)"
+10,DataUtilitiesTest,testCalculateRowTotalValidDataPositiveValues,Row total should be 6.0,Summing row values correctly,"FAILED (Expected 6.0, got 3.0)"
+11,DataUtilitiesTest,testCalculateRowTotalValidDataNegativeValues,Row total should be -6.0,Summing row values correctly with negatives,"FAILED (Expected -6.0, got -3.0)"
+12,DataUtilitiesTest,testCalculateRowTotalNullData,Should throw InvalidParameterException for null data,Handling null inputs correctly,"FAILED (Expected InvalidParameterException, got NullPointerException)"
+13,DataUtilitiesTest,testCalculateRowTotalMixedValues,Row total should be 2.0,Handling mixed positive/negative row values,"FAILED (Expected 2.0, got -1.0)"
+14,DataUtilitiesTest,testCalculateRowTotalSingleValue,Row total should be 7.5,Handling single-value row correctly,"FAILED (Expected 7.5, got 0.0)"
+15,DataUtilitiesTest,testCreateNumberArray2DValidData,2D Number array should match expected values,Validating correct conversion to 2D Number array,FAILED (Mismatch at element [0][1])
+16,DataUtilitiesTest,testCreateNumberArray2DNullData,Should throw InvalidParameterException for null data,Handling null input for 2D array,"FAILED (Expected InvalidParameterException, got IllegalArgumentException)"
+17,DataUtilitiesTest,testCreateNumberArray2DSingleRow,2D Number array should match expected values,Handling single-row conversion correctly,FAILED (Mismatch at element [0][2])
+18,DataUtilitiesTest,testGetCumulativePercentagesValidData,First cumulative percentage should be 0.3125,Validating cumulative percentage calculations,"FAILED (Expected 0.3125, got 0.4545)"
+19,DataUtilitiesTest,testCreateNumberArrayValidData,Number array should match expected values,Validating correct conversion to Number array,FAILED (Mismatch at element [2])
