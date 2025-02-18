@@ -123,7 +123,7 @@ The team began testing once the following conditions were met.
 - Test Specification were finalized created.
 - The test environment was properly set up.
 
-**2.4 Test Environment**
+**2.7 Test Environment**
 
 JUnit Version: 4.11
 
