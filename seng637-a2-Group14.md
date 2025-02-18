@@ -110,11 +110,6 @@ System Under Test: JFreeChart
 
 This section outlines the test cases designed to verify the functionality of the DataUtilities and Range classes. The tests are structured according to the source code methods they assess and are aligned with the input partitions defined in the test strategy.
 
-Text…
-
-// write down the name of the test methods and classes. Organize the based on
-the source code method // they test. identify which tests cover which partitions
-you have explained in the test strategy section //above
 
 | Class  | Method  | Test Method | Coverage |
 |--------|----------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------|
